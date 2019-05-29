@@ -1,0 +1,25 @@
+{
+  "name": "getloan",
+  "version": "1.0.0",
+  "description": "GetLoan is a loan application where people can request for loan.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JerryG09/GetLoan.git"
+  },
+  "keywords": [
+    "Loan"
+  ],
+  "author": "Oyebamiji Jeremiah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JerryG09/GetLoan/issues"
+  },
+  "homepage": "https://github.com/JerryG09/GetLoan#readme",
+  "dependencies": {
+    "json-server": "^0.15.0"
+  }
+}
