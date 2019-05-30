@@ -24,28 +24,4 @@ $(function() {
       }
     });
   });
-
-
-// $(document).ready(function(){
-//   $.ajax({
-//     type: "POST",
-//     url: 'http://localhost:3000/users',
-//     dataType: json
-//   });
-// $("#submit").click(function(){
-//       var email = $('#exampleInputEmail1').val();
-//     var pwd = $('#exampleInputPassword1').val();
-//     console.log(email, pwd)
-//   // let url = `http://localhost:3000/users?email=${email}?passowrd=${pwd}`;
-//   $.post(`http://localhost:3000/users?email=${email}?passowrd=${pwd}`,
-//   function(data, status){
-//     // alert("Data: " + data + "\nStatus: " + status);
-//     console.log(data)
-//   });
-// });
-// });
-
-
-
-
 });
