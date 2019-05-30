@@ -19,6 +19,18 @@ nav a {
   padding: 2rem
 }
 
+/* User Profile */
+.col-md-2 img {
+  width: 70%;
+  padding: 1em;
+  margin: auto;
+  border-radius: 200%;
+}
+
+.col-md-10 button {
+  display: none
+}
+
 @media only screen and (max-width:800px) {
   .f-style {
     width: 90%;
@@ -26,6 +38,12 @@ nav a {
   .mg-img img {
     width: 90%;
     border-radius: 1em;
+  }
+  .col-md-2 {
+    display: none
+  }
+  .col-md-10 button {
+    display: block
   }
 }
 
