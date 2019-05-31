@@ -1,28 +1,20 @@
 {
   "users": [
     {
-      "id": 1,
-      "firstName": "John",
-      "lastName": "Doe",
-      "email": "johndow@gmail.com",
-      "phone": 10203040,
-      "password": "asdfg"
-    },
-    {
-      "id": 2,
-      "firstName": "Joyce",
-      "lastName": "Jawly",
-      "email": "jojaw@gmail.com",
-      "phone": 90903040,
-      "password": "asdfg"
+      "firstName": "good",
+      "lastName": "grace",
+      "phone": "12345",
+      "email": "gg@gmail.com",
+      "pwd": "asd123",
+      "id": 1
     }
   ],
   "loans": [
     {
-      "amount": "50000",
-      "email": "tr@sd",
-      "status": "Accepted",
-      "id": 2
+      "amount": "5000",
+      "email": "gg@gmail.com",
+      "status": "Pending",
+      "id": 1
     }
   ]
 }
