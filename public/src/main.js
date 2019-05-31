@@ -1,37 +1,7 @@
-// Admin Status Buttons
-
-// const acceptBtn = () => {
-//   document.getElementById('reject').style.display = "none";
-//   document.getElementById('delete').style.display = "none";
-//   document.getElementById('accept').innerHTML = "Accepted";
-//   document.getElementById('changeStatus').innerText = "Accepted";
-// }
-
-const deleteBtn = () => {
-  document.getElementById('accept').style.display = "none";
-  document.getElementById('reject').style.display = "none";
-  document.getElementById('delete').innerHTML = "Deleted";
-}
-
-const rejectBtn = () => {
-  document.getElementById('accept').style.display = "none";
-  document.getElementById('delete').style.display = "none";
-  document.getElementById('reject').innerHTML = "Rejected";
-}
-
 
 $(function () {
-  // const acceptBtn = () => {
-  //   document.getElementById('reject').style.display = "none";
-  //   document.getElementById('delete').style.display = "none";
-  //   document.getElementById('accept').innerHTML = "Accepted";
-  //   document.getElementById('changeStatus').innerText = "Accepted";
-  // }
-
-  // Accept Button
+   // Accept Button
   $(document).on('click', '#accept', function() {
-    // $('#reject').css('display', 'none')
-    // $('#delete').css('display', 'none')
     this.innerHTML = 'Accepted';
     $(this).siblings().css('display', 'none');
 
@@ -129,13 +99,7 @@ $(function () {
       dataType: "json",
       success: result => {
         let loans = "";
-// keep 
-// <td>
-// <a class='btn btn-warning' id="accept">${result[i].status}</a>
-// <a class='btn btn-success' id="reject" onclick="rejectBtn()">Reject</a>
-// <a class='btn btn-danger' id="delete" onclick="deleteBtn()">Delete</a> 
-// </td>
-// </tr>
+
         for (var i = 0; i < result.length; i++) {
           loans += `<tr id='${result[i].id}'>
                       <td>${result[i].id}</td>
@@ -174,13 +138,14 @@ $(function () {
   $('#request').on('click', function (e) {
     e.preventDefault();
 
+    
     var user = {
       amount: $('#amount').val(),
       email: $('#exampleInputEmail1').val(),
       status: "Pending",
     }
 
-    if (!user.amount || !user.email) {
+    if (!user.email || !user.amount) {
       alert("Fill required fields")
     } else {
       $.ajax({
@@ -242,6 +207,8 @@ $(function () {
       email: $('#exampleInputEmail1').val(),
       pwd: $('#exampleInputPassword1').val()
     }
+    
+    
 
     if (!user.firstName || !user.lastName || !user.phone || !user.email || !user.pwd) {
       alert("Fill required fields")
@@ -253,7 +220,8 @@ $(function () {
         dataType: "json",
         contentType: "application/json",
         success: function (data) {
-          console.log(data);
+          let id = data.id
+          console.log(id);
           populateAdmin();
           window.location = './ui/users/userProfile.html'
         },
