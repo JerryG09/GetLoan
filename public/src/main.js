@@ -28,6 +28,7 @@ $(function () {
   //   document.getElementById('changeStatus').innerText = "Accepted";
   // }
 
+  // Accept Button
   $(document).on('click', '#accept', function() {
     // $('#reject').css('display', 'none')
     // $('#delete').css('display', 'none')
@@ -51,6 +52,51 @@ $(function () {
     });
   })
 
+  // Reject Button
+  $(document).on('click', '#reject', function() {
+    this.innerHTML = 'Rejected';
+    $(this).siblings().css('display', 'none');
+
+    let id = $(this).closest('tr').attr('id');
+    let update = {
+      status: "Rejected"
+    }
+    $.ajax({
+      type: 'PATCH',
+      url: 'http://localhost:3000/loans/' + id,
+      data: JSON.stringify(update),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('success', data);
+      },
+      error: (e) => console.log(e)
+    });
+  })
+
+  // Delete Button
+  $(document).on('click', '#delete', function() {
+    this.innerHTML = 'Deleted';
+    $(this).siblings().css('display', 'none');
+
+    let id = $(this).closest('tr').attr('id');
+    let update = {
+      status: "Rejected"
+    }
+    $.ajax({
+      type: 'DELETE',
+      url: 'http://localhost:3000/loans/' + id,
+      data: JSON.stringify(update),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('success', data);
+      },
+      error: (e) => console.log(e)
+    });
+  })
+
+  // Get Loan
   let getLoan = () => {
     $.ajax({
       type: "GET",
@@ -99,7 +145,12 @@ $(function () {
 
                   if (result[i].status === 'Accepted') {
                     loans += `<td><a class="btn btn-success text-light">${result[i].status}</a></td></tr>`
-                  } else {
+                  } else if (result[i].status === 'Rejected') {
+                    loans += `<td><a class="btn btn-danger text-light">${result[i].status}</a></td></tr>`
+                  } else if (result[i].status === 'Delete') {
+                    loans += `<td><a class="btn btn-danger text-light">${result[i].status}</a></td></tr>`
+                  }
+                  else {
                   loans +=  `<td>
                     <a class='btn btn-warning' id="accept">${result[i].status}</a>
                     <a class='btn btn-success' id="reject">Reject</a>
@@ -107,6 +158,7 @@ $(function () {
                     </td>
                     </tr>`
                   }
+                  
 
         }
 
