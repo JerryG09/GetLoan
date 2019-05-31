@@ -22,12 +22,6 @@
       "amount": "50000",
       "email": "tr@sd",
       "status": "Accepted",
-      "id": 1
-    },
-    {
-      "amount": "50000",
-      "email": "tr@sd",
-      "status": "Accepted",
       "id": 2
     }
   ]
