@@ -1,11 +1,11 @@
 // Admin Status Buttons
 
-const acceptBtn = () => {
-  document.getElementById('reject').style.display = "none";
-  document.getElementById('delete').style.display = "none";
-  document.getElementById('accept').innerHTML = "Accepted";
-  document.getElementById('changeStatus').innerText = "Accepted";
-}
+// const acceptBtn = () => {
+//   document.getElementById('reject').style.display = "none";
+//   document.getElementById('delete').style.display = "none";
+//   document.getElementById('accept').innerHTML = "Accepted";
+//   document.getElementById('changeStatus').innerText = "Accepted";
+// }
 
 const deleteBtn = () => {
   document.getElementById('accept').style.display = "none";
@@ -21,6 +21,36 @@ const rejectBtn = () => {
 
 
 $(function () {
+  // const acceptBtn = () => {
+  //   document.getElementById('reject').style.display = "none";
+  //   document.getElementById('delete').style.display = "none";
+  //   document.getElementById('accept').innerHTML = "Accepted";
+  //   document.getElementById('changeStatus').innerText = "Accepted";
+  // }
+
+  $(document).on('click', '#accept', function() {
+    // $('#reject').css('display', 'none')
+    // $('#delete').css('display', 'none')
+    this.innerHTML = 'Accepted';
+    $(this).siblings().css('display', 'none');
+
+    let id = $(this).closest('tr').attr('id');
+    let update = {
+      status: "Accepted"
+    }
+    $.ajax({
+      type: 'PATCH',
+      url: 'http://localhost:3000/loans/' + id,
+      data: JSON.stringify(update),
+      dataType: 'json',
+      contentType: 'application/json',
+      success: (data) => {
+        console.log('success', data);
+      },
+      error: (e) => console.log(e)
+    });
+  })
+
   let getLoan = () => {
     $.ajax({
       type: "GET",
@@ -53,19 +83,30 @@ $(function () {
       dataType: "json",
       success: result => {
         let loans = "";
-
+// keep 
+// <td>
+// <a class='btn btn-warning' id="accept">${result[i].status}</a>
+// <a class='btn btn-success' id="reject" onclick="rejectBtn()">Reject</a>
+// <a class='btn btn-danger' id="delete" onclick="deleteBtn()">Delete</a> 
+// </td>
+// </tr>
         for (var i = 0; i < result.length; i++) {
-          loans += `<tr>
+          loans += `<tr id='${result[i].id}'>
                       <td>${result[i].id}</td>
                       <td>${result[i].email}</td>
                       <td>${result[i].amount}</td>
-                      <td>
-                      <a class='btn btn-warning' id="accept" onclick="acceptBtn()">${result[i].status}</a>
-                      <a class='btn btn-success' id="reject" onclick="rejectBtn()">Reject</a>
-                      <a class='btn btn-danger' id="delete" onclick="deleteBtn()">Delete</a> 
-                      </td>
-                      </tr>
                   `;
+
+                  if (result[i].status === 'Accepted') {
+                    loans += `<td><a class="btn btn-success text-light">${result[i].status}</a></td></tr>`
+                  } else {
+                  loans +=  `<td>
+                    <a class='btn btn-warning' id="accept">${result[i].status}</a>
+                    <a class='btn btn-success' id="reject">Reject</a>
+                    <a class='btn btn-danger' id="delete">Delete</a> 
+                    </td>
+                    </tr>`
+                  }
 
         }
 
