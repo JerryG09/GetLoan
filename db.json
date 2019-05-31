@@ -11,38 +11,18 @@
     {
       "id": 2,
       "firstName": "Joyce",
-      "lastName": "Darwon",
-      "email": "joyce_d@gmail.com",
-      "phone": 10203040,
-      "password": "asdfg"
-    },
-    {
-      "id": 3,
-      "firstName": "Moses",
-      "lastName": "Moody",
-      "email": "moses_dy@gmail.com",
-      "phone": 30401010,
+      "lastName": "Jawly",
+      "email": "jojaw@gmail.com",
+      "phone": 90903040,
       "password": "asdfg"
     }
   ],
   "loans": [
     {
-      "id": 1,
-      "amount": 20000,
-      "status": "pending",
-      "requestedBy": 1
-    },
-    {
-      "id": 1,
-      "amount": 20000,
-      "status": "pending",
-      "requestedBy": 1
-    },
-    {
-      "id": 1,
-      "amount": 20000,
-      "status": "pending",
-      "requestedBy": 1
+      "amount": "50000",
+      "email": "tr@sd",
+      "status": "Pending",
+      "id": 1
     }
   ]
 }

@@ -43,7 +43,35 @@
         <div class="col-md-2" style="background: #eee5e5">
           <img src="../../src/img/user.png" alt="profile-picture" class="img-user">
           <p>Welcome <span>Doe</span></p>
-          <button class="btn btn-dark">Request Loan</button>
+          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+              Get Loan
+          </button><!-- The Modal -->
+          <div class="modal" id="myModal">
+            <div class="modal-dialog">
+              <div class="modal-content">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <form class="f-style mt-3" method="POST" action="">
+                        <div class="form-group">
+                          <label for="">Confirm Email</label>
+                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" required>
+                          </div>
+                      <div class="form-group">
+                        <label for="">Enter Amount</label>
+                        <input type="number" class="form-control" id="amount" placeholder="Amount" required>
+                      </div>
+                    </form>
+                </div>
+          
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-succes" data-dismiss="modal" id="request">Request</button>
+                </div>
+          
+              </div>
+            </div>
+          </div>
+
         </div>
         <div class="col-md-10">
           <div class="container">
@@ -53,20 +81,11 @@
                   <tr>
                     <td>S/N</td>
                     <td>Amount</td>
-                    <td>Status</td>
+                    <td id="changeStatus">Status</td>
                   </tr>
                 </thead>
-                <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>N20,000</td>
-                    <td><a href="#">Pending</a></td>
-                  </tr>
-                  <tr>
-                    <td>2</td>
-                    <td>N100,000</td>
-                    <td><a href="#">Decline</a></td>
-                  </tr>
+                <tbody id="tbody">
+                  
                 </tbody>
               </table>
           </div>
